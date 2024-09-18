@@ -188,6 +188,8 @@ extension BoolParsing on String {
       return true;
     } else if (this.toLowerCase() == 'false') {
       return false;
+    } else if (this == "0") {
+      return false;
     }
 
     throw '"$this" can not be parsed to boolean.';

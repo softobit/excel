@@ -529,14 +529,14 @@ class Parser {
               var delta = num.parse(_parseValue(content)) * 24 * 3600 * 1000;
               var date = DateTime(1899, 12, 30);
               value = date
-                  .add(Duration(milliseconds: delta.toInt()))
+                  .add(Duration(milliseconds: delta.round()))
                   .toIso8601String();
               // time
             } else if (((fmtId >= 18) && (fmtId <= 21)) ||
                 ((fmtId >= 45) && (fmtId <= 47))) {
               var delta = num.parse(_parseValue(content)) * 24 * 3600 * 1000;
               var date = DateTime(0);
-              date = date.add(Duration(milliseconds: delta.toInt()));
+              date = date.add(Duration(milliseconds: delta.round()));
               value =
                   '${_twoDigits(date.hour)}:${_twoDigits(date.minute)}:${_twoDigits(date.second)}';
               // number
